@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient_list</title>
+</head>
+<body>
+{% if patient_list %}
+<h1>Patients:</h1>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Age</th>
+    </thead>
+    {% for patient in patient_list %}
+    <tr>
+        <td>{{patient.id}}</td>
+        <td>{{patient.first_name}}</td>
+        <td>{{patient.last_name}}</td>
+        <td>{{patient.age}}</td>
+         <td><a href="{% url 'patient_update' patient.pk %}">Patient update</a></td>
+         <td><a href="{% url 'patient_delete' patient.pk %}">Patient delete</a></td>
+         <td><a href="{% url 'add_data' patient.pk %}">add data</a></td>
+        <td><a href="{% url 'analyze' patient.pk %}">Analyze</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>No patient information</h2>
+{% endif %}
+
+<a href="{% url 'patient_create' %}">Create patient</a>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add data</title>
+</head>
+<body>
+<h1>Add patient data</h1>
+<p>First name {{patient.first_name}}</p>
+<p>Last name {{ patient.last_name}}</p>
+<p>Age {{ patient.age }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Save">
+</form>
+
+</body>
+</html>

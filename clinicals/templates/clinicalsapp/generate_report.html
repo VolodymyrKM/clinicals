@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clinical Data report</title>
+</head>
+<body>
+<h1>Clinical Data report</h1>
+<table border="3">
+    <thead>
+    <th>Component Name</th>
+    <th>Component Value</th>
+    <th>Component Date Time</th>
+    </thead>
+    {% for each_entry in data %}
+    <tr>
+        <td>{{ each_entry.component_name }} </td>
+        <td>{{ each_entry.component_value }}</td>
+        <td>{{ each_entry.measure_date_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'patient_list' %}">Home</a>
+</body>
+</html>
